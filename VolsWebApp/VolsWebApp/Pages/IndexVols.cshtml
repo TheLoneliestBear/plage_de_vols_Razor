@@ -1,0 +1,39 @@
+﻿@page
+@model VolsWebApp.Pages.IndexVolsModel
+
+@{
+    ViewData["Title"] = "IndexVols";
+}
+<div class="text-center">
+    <h1>Application d'arrivée de vol</h1>
+    </hr>
+</div>
+
+
+<table class="table" id="listeProduits">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vol[0].Prevu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vol[0].Révisé)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vol[0].Compagnie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vol[0].Provenance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vol[0].Etat)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="produits">
+
+    </tbody>
+</table>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/IndexVols.js"></script>

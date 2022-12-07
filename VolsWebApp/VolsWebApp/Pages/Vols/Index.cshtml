@@ -1,0 +1,60 @@
+﻿@page
+@model VolsWebApp.Pages.Vols.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vol[0].Prevu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vol[0].Révisé)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vol[0].Compagnie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vol[0].Provenance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vol[0].Etat)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Vol) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prevu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Révisé)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Compagnie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Provenance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etat)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

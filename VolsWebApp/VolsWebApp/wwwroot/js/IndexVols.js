@@ -5,25 +5,28 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/volHub").build();
 //document.getElementById("btsendbutton").disabled = true;
 
 connection.on("ReceiveMessage", function (prevu, revise, compagnie, provenance, etat) {
-    var tablerow = document.getElementById("listeProduits");
+    var tablerow = document.getElementById("listeVols");
     var row = document.createElement("tr");
     var cellPrevu = document.createElement("td");
     var cellRevise = document.createElement("td");
     var cellCompagnie = document.createElement("td");
     var cellProvenance = document.createElement("td");
+    var cellEtat = document.createElement("td");
 
     cellPrevu.textContent = `${prevu}`;
     cellRevise.textContent = `${revise}`;
     cellCompagnie.textContent = `${compagnie}`;
     cellProvenance.textContent = `${provenance}`;
+    cellEtat.textContent = `${etat}`;
 
-    row.appendChild(cellPrevu);
-    row.appendChild(cellRevise);
-    row.appendChild(cellCompagnie);
-    row.appendChild(cellProvenance);
+    tablerow.appendChild(cellPrevu);
+    tablerow.appendChild(cellRevise);
+    tablerow.appendChild(cellCompagnie);
+    tablerow.appendChild(cellProvenance);
+    tablerow.appendChild(cellEtat);
 
     tablerow.appendChild(row);
-
+    getVols();
 });
 
 connection.start().then(function () {
@@ -39,7 +42,7 @@ function getVols() {
         .then(response => response.json())
         .then(data =>
             data.forEach(vol => {
-                var tablerow = document.getElementById("listeProduits");
+                var tablerow = document.getElementById("listeVols");
                 var row = document.createElement("tr");
                 var cellPrevu = document.createElement("td");
                 var cellRevise = document.createElement("td");
@@ -53,10 +56,11 @@ function getVols() {
                 cellProvenance.textContent = `${vol.provenance}`;
                 cellEtat.textContent = `${vol.etat}`;
 
-                row.appendChild(cellPrevu);
-                row.appendChild(cellRevise);
-                row.appendChild(cellCompagnie);
-                row.appendChild(cellProvenance);
+                tablerow.appendChild(cellPrevu);
+                tablerow.appendChild(cellRevise);
+                tablerow.appendChild(cellCompagnie);
+                tablerow.appendChild(cellProvenance);
+                tablerow.appendChild(cellEtat);
 
                 tablerow.appendChild(row);
             }))

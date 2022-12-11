@@ -13,34 +13,34 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Vol.Id" />
+            <input id="id" type="hidden" asp-for="Vol.Id" />
             <div class="form-group">
                 <label asp-for="Vol.Prevu" class="control-label"></label>
-                <input asp-for="Vol.Prevu" class="form-control" />
+                <input id="prevu" asp-for="Vol.Prevu" class="form-control" />
                 <span asp-validation-for="Vol.Prevu" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Vol.Révisé" class="control-label"></label>
-                <input asp-for="Vol.Révisé" class="form-control" />
+                <input id="revise" asp-for="Vol.Révisé" class="form-control" />
                 <span asp-validation-for="Vol.Révisé" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Vol.Compagnie" class="control-label"></label>
-                <input asp-for="Vol.Compagnie" class="form-control" />
+                <input id="compagnie" asp-for="Vol.Compagnie" class="form-control" />
                 <span asp-validation-for="Vol.Compagnie" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Vol.Provenance" class="control-label"></label>
-                <input asp-for="Vol.Provenance" class="form-control" />
+                <input id="provenance" asp-for="Vol.Provenance" class="form-control" />
                 <span asp-validation-for="Vol.Provenance" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Vol.Etat" class="control-label"></label>
-                <input asp-for="Vol.Etat" class="form-control" />
+                <input id="etat" asp-for="Vol.Etat" class="form-control" />
                 <span asp-validation-for="Vol.Etat" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input id="btsave" type="button" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -51,5 +51,7 @@
 </div>
 
 @section Scripts {
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/Edit.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
